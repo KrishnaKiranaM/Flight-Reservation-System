@@ -5,6 +5,7 @@ public class TouristTicket {
     public String[] selectTouristLocation= new String[5];
     public String hotelAddress;
     public int locCount;
+    Flight flight;
 
     public String getHotelAddress() {
         return hotelAddress;

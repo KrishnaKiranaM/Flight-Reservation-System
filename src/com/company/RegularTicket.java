@@ -3,6 +3,7 @@ package com.company;
 public class RegularTicket {
 
     public String specialServices;
+    Flight flight;
 
     public  String getSpecialServices(){
         return  specialServices;
