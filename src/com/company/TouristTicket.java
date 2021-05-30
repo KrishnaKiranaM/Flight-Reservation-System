@@ -1,11 +1,32 @@
 package com.company;
 
-public class TouristTicket {
+public class TouristTicket extends  Ticket{
 
-    public String[] selectTouristLocation= new String[5];
-    public String hotelAddress;
-    public int locCount;
-    Flight flight;
+    private String[] selectTouristLocation= new String[5];
+    private String hotelAddress;
+    private int locCount;
+
+    public  TouristTicket(String pnr,Passenger passenger,Flight flight,String seatNumber, String boarding, String destination, String departureDateTime, String arrivalDateTime, boolean cancelled, String[] selectTouristLocation, String hotelAddress){
+        super(pnr, passenger, flight, seatNumber, boarding, destination, departureDateTime, arrivalDateTime, cancelled);
+         this.selectTouristLocation= selectTouristLocation;
+         this.hotelAddress= hotelAddress;
+    }
+    public String[] getSelectTouristLocation() {
+        return selectTouristLocation;
+    }
+
+    public void setSelectTouristLocation(String[] selectTouristLocation) {
+        this.selectTouristLocation = selectTouristLocation;
+    }
+
+    public void setHotelAddress(String hotelAddress) {
+        this.hotelAddress = hotelAddress;
+    }
+
+    public int getLocCount() {
+        return locCount;
+    }
+
 
     public String getHotelAddress() {
         return hotelAddress;

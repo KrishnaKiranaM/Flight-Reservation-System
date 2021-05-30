@@ -64,4 +64,7 @@ public class Flight {
     public void incrementBookingCounter(){
         bookedSeats++;
     }
+    public  void decrementBookingCounter(){
+        bookedSeats--;
+    }
 }

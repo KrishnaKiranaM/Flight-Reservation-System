@@ -1,7 +1,7 @@
 package com.company;
 
 
-public class Ticket {
+public abstract class Ticket {
 
     private String pnr;
     private String boarding;
@@ -41,6 +41,62 @@ public class Ticket {
 
     public  Ticket(){}
 
+    public String getPnr() {
+        return pnr;
+    }
+
+    public void setPnr(String pnr) {
+        this.pnr = pnr;
+    }
+
+    public String getBoarding() {
+        return boarding;
+    }
+
+    public void setBoarding(String boarding) {
+        this.boarding = boarding;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public String getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(String seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
+    public String getDepartureDateTime() {
+        return departureDateTime;
+    }
+
+    public void setDepartureDateTime(String departureDateTime) {
+        this.departureDateTime = departureDateTime;
+    }
+
+    public String getArrivalDateTime() {
+        return arrivalDateTime;
+    }
+
+    public void setArrivalDateTime(String arrivalDateTime) {
+        this.arrivalDateTime = arrivalDateTime;
+    }
+
+    public boolean isCancelled() {
+        return cancelled;
+    }
+
+    public void setCancelled(boolean cancelled) {
+        this.cancelled = cancelled;
+    }
+
     public  String getStatus(){
         return  pnr+" "+boarding+" "+destination+" "+seatNumber+" "+departureDateTime+" "+arrivalDateTime;
     }
@@ -51,7 +107,7 @@ public class Ticket {
 
     public void cancel(){
         System.out.println("Ticket with pnr number: "+ pnr+" has been cancelled");
-       // flight.capacity++;
+       this.flight.decrementBookingCounter();
         cancelled= true;
     }
 }
