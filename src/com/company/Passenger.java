@@ -18,6 +18,8 @@ public class Passenger {
             this.emailid= emailid;
         }
 
+        public  Contact(){}
+
           public String getName() {
               return name;
           }
@@ -106,7 +108,8 @@ public class Passenger {
 
 
 
-    public Passenger( String name, String phoneNumber, String emailid, String street,String city, String state){
+    public Passenger( String name, String phoneNumber, String emailid,
+                      String street,String city, String state){
         this.id= ++idCounter;
         this.contact= new Contact(name, phoneNumber, emailid);
         this.address= new Address(street, city, state);
@@ -116,6 +119,9 @@ public class Passenger {
 
    public int getPassengerCount(){
         return  idCounter;
+   }
+   public int getId(){
+        return id;
    }
 
     public  String getContact(){

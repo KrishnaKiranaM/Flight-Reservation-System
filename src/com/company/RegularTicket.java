@@ -4,7 +4,9 @@ public class RegularTicket extends Ticket {
 
     private String specialServices;
 
-    public RegularTicket(String pnr,Passenger passenger,Flight flight,String seatNumber, String boarding, String destination, String departureDateTime, String arrivalDateTime, boolean cancelled, String specialServices){
+    public RegularTicket(String pnr,Passenger passenger,Flight flight,String seatNumber, String boarding, String destination,
+                             String departureDateTime, String arrivalDateTime, boolean cancelled, String specialServices){
+
         super(pnr, passenger, flight, seatNumber, boarding, destination, departureDateTime, arrivalDateTime, cancelled);
         this.specialServices= specialServices;
     }

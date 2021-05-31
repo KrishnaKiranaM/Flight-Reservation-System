@@ -14,7 +14,9 @@ public abstract class Ticket {
     private Passenger passenger;
 
 
-    public  Ticket(String pnr,Passenger passenger,Flight flight,String seatNumber, String boarding, String destination, String departureDateTime, String arrivalDateTime, boolean cancelled){
+    public  Ticket(String pnr,Passenger passenger,Flight flight,String seatNumber, String boarding,
+                   String destination, String departureDateTime, String arrivalDateTime, boolean cancelled){
+
              this.pnr= pnr;
              this.passenger = passenger;
              this.flight= flight;
@@ -24,19 +26,20 @@ public abstract class Ticket {
              this.departureDateTime= departureDateTime;
              this.arrivalDateTime= arrivalDateTime;
              this.cancelled= cancelled;
+
     }
 
 
     public  Ticket(Ticket ticket){
-        this.pnr= ticket.pnr;
-        this.passenger= ticket.passenger;
-        this.flight= ticket.flight;
-        this.seatNumber= ticket.seatNumber;;
-        this.boarding= ticket.boarding;
-        this.destination= ticket.destination;
-        this.departureDateTime= ticket.departureDateTime;
-        this.arrivalDateTime= ticket.arrivalDateTime;
-        this.cancelled= ticket.cancelled;
+            this.pnr= ticket.pnr;
+            this.passenger= ticket.passenger;
+            this.flight= ticket.flight;
+            this.seatNumber= ticket.seatNumber;;
+            this.boarding= ticket.boarding;
+            this.destination= ticket.destination;
+            this.departureDateTime= ticket.departureDateTime;
+            this.arrivalDateTime= ticket.arrivalDateTime;
+            this.cancelled= ticket.cancelled;
     }
 
     public  Ticket(){}
