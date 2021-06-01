@@ -31,19 +31,17 @@ public abstract class Ticket {
 
 
     public  Ticket(Ticket ticket){
-            this.pnr= ticket.pnr;
-            this.passenger= ticket.passenger;
-            this.flight= ticket.flight;
-            this.seatNumber= ticket.seatNumber;;
-            this.boarding= ticket.boarding;
-            this.destination= ticket.destination;
-            this.departureDateTime= ticket.departureDateTime;
-            this.arrivalDateTime= ticket.arrivalDateTime;
-            this.cancelled= ticket.cancelled;
+        // Copy Constructor
+        //Constructor overloading
+            this(ticket.pnr ,ticket.passenger,ticket.flight,ticket.seatNumber,ticket.boarding,
+                    ticket.destination,ticket.departureDateTime,ticket.arrivalDateTime,ticket.cancelled);
+
     }
 
     public  Ticket(){}
 
+    // getters and setters for handling private date and scalability
+    //method returns pnr of the ticket
     public String getPnr() {
         return pnr;
     }
@@ -100,17 +98,34 @@ public abstract class Ticket {
         this.cancelled = cancelled;
     }
 
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public Passenger getPassenger() {
+        return passenger;
+    }
+
+    // method return Ticket details
     public  String getStatus(){
-        return  pnr+" "+boarding+" "+destination+" "+seatNumber+" "+departureDateTime+" "+arrivalDateTime;
+        if(this.cancelled){
+            return "Ticket Cancelled";
+        }
+        else {
+            return  "PNR: "+this.pnr+", Boarding: "+this.boarding+", Destination: "+this.destination+", Seat Number: "
+                    +this.seatNumber+", Departure Time:"+this.departureDateTime+"hrs,  Arrival Time:"+this.arrivalDateTime+"hrs, Status: Booked, ";
+        }
     }
 
+    // returns flight duration
     public int getFlightDuration(){
-        return  Integer.parseInt(arrivalDateTime)- Integer.parseInt(departureDateTime);
+        return  Integer.parseInt(this.arrivalDateTime)- Integer.parseInt(this.departureDateTime);
     }
 
+    // method cancels the ticket
     public void cancel(){
         System.out.println("Ticket with pnr number: "+ pnr+" has been cancelled");
        this.flight.decrementBookingCounter();
-        cancelled= true;
+        this.cancelled= true;
     }
 }

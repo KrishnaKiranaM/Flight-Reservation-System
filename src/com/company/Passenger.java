@@ -1,134 +1,158 @@
 package com.company;
 
+// Establishing nested class
+//Composition relationship
+//outer class
 public class Passenger {
 
-    private  static   int idCounter=0;
+    private  static  int idCounter;
     private int id;
 
+    // Initializing static variable
+    static {
+        idCounter=0;
+    }
+       // inner class Contact
 
-      private static class Contact {
+         private static class Contact {
 
-      private   String name;
-      private   String phoneNumber;
-      private   String emailid;
+               private   String name;
+               private   String phoneNumber;
+               private   String emailid;
 
-        public  Contact(String name, String phoneNumber, String emailid){
-            this.name= name;
-            this.phoneNumber=phoneNumber;
-            this.emailid= emailid;
-        }
+               // constructor with args
+               public  Contact(String name, String phoneNumber, String emailid){
+               this.name= name;
+               this.phoneNumber=phoneNumber;
+               this.emailid= emailid;
+             }
 
-        public  Contact(){}
+              // constructor with no-args
+              public  Contact(){}
 
-          public String getName() {
+              public String getName() {
               return name;
-          }
+             }
 
-          public void setName(String name) {
+             // getters and setters for handling private date and scalability
+             public void setName(String name) {
               this.name = name;
-          }
+             }
 
-          public String getPhoneNumber() {
+             public String getPhoneNumber() {
               return phoneNumber;
-          }
+             }
 
-          public void setPhoneNumber(String phoneNumber) {
+             public void setPhoneNumber(String phoneNumber) {
               this.phoneNumber = phoneNumber;
-          }
+             }
 
-          public String getEmailid() {
+             public String getEmailid() {
               return emailid;
-          }
+             }
 
-          public void setEmailid(String emailid) {
+             public void setEmailid(String emailid) {
               this.emailid = emailid;
-          }
+            }
 
-          public  String getContactDetails(){
-            return  getName()+" "+getPhoneNumber()+" "+ getEmailid();
-        }
+            // method to get passenger contact details
+             public  String getContactDetails(){
+             return  getName()+" "+getPhoneNumber()+" "+ getEmailid();
+            }
 
-        public  void updateContactDetails(String name,String phoneNumber,String emailid){
+            // method to update passenger contact details
+            public  void updateContactDetails(String name,String phoneNumber,String emailid){
             setName(name);
             setPhoneNumber(phoneNumber);
             setEmailid(emailid);
-        }
-      }
-      private  Contact contact;
+           }
+         }
+         private  Contact contact;
 
 
-      private static class Address {
-        private   String street;
-        private   String city;
-        private   String state;
+          // inner class Address
 
-        public  Address(String street,String city, String state){
+        private static class Address {
+            private   String street;
+            private   String city;
+            private   String state;
+
+            // constructor with args
+           public  Address(String street,String city, String state){
             this.street= street;
             this.city= city;
             this.state= state;
-        }
+           }
 
+             // constructor with no-args
+            public  Address(){}
 
-          public String getStreet() {
+            // getters and setters for handling private date and scalability
+            public String getStreet() {
               return street;
-          }
+           }
 
-          public void setStreet(String street) {
+           public void setStreet(String street) {
               this.street = street;
-          }
+           }
 
-          public String getCity() {
+           public String getCity() {
               return city;
-          }
+           }
 
-          public void setCity(String city) {
-              this.city = city;
-          }
+           public void setCity(String city) {
+               this.city = city;
+           }
 
-          public String getState() {
+           public String getState() {
               return state;
-          }
+           }
 
-          public void setState(String state) {
+           public void setState(String state) {
               this.state = state;
-          }
+           }
 
-          public String getAddressDetails(){
+           // method to get passenger address details
+           public String getAddressDetails(){
             return  getStreet()+ " "+ getCity() +" "+ getState();
-        }
+           }
 
-        public void updateAddressDetails(String street,String city, String state){
+           // method to update passenger details
+           public void updateAddressDetails(String street,String city, String state){
             setStreet(street);
             setCity(city);
             setState(state);
+           }
         }
-      }
-      private Address address;
+        private Address address;
 
 
 
 
-    public Passenger( String name, String phoneNumber, String emailid,
+      public Passenger( String name, String phoneNumber, String emailid,
                       String street,String city, String state){
         this.id= ++idCounter;
         this.contact= new Contact(name, phoneNumber, emailid);
         this.address= new Address(street, city, state);
-    }
+      }
 
-    public Passenger(){}
+      public Passenger(){}
 
-   public int getPassengerCount(){
-        return  idCounter;
-   }
-   public int getId(){
+    // getters and setters for handling private date and scalability
+      // method to get id of passenger
+      public int getId(){
         return id;
-   }
+      }
 
-    public  String getContact(){
+      public  String getContact(){
+          // calling Contact class method
+          // re-usability
         return  contact.getContactDetails();
-    }
+      }
 
-    public  String getAddress(){
+      public  String getAddress(){
+          // calling Contact class method
+          // re-usability
         return address.getAddressDetails();
-    }
+      }
 }

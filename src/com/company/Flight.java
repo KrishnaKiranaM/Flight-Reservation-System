@@ -6,6 +6,7 @@ public class Flight {
     private   int bookedSeats;
     private   int capacity;
 
+     //
     public Flight(String flightNumber, String airline, int capacity){
         this.flightNumber= flightNumber;
         this.airline= airline;
@@ -14,11 +15,13 @@ public class Flight {
     public Flight(){}
 
     public Flight(Flight flight){
-        this.flightNumber= flight.flightNumber;
-        this.airline= flight.airline;
-        this.capacity= flight.capacity;
+        // constructor overloading
+        //copy constructor
+        this(flight.flightNumber,flight.airline,flight.capacity);
+
     }
 
+    // getters and setters for handling private date and scalability
     public String getFlightNumber() {
         return flightNumber;
     }
@@ -35,11 +38,12 @@ public class Flight {
         this.airline = airline;
     }
 
+    // method return number of seats booked
     public int getBookedSeats() {
         return bookedSeats;
     }
 
-
+     // method return the seat capacity of airplane
     public int getCapacity() {
         return capacity;
     }
@@ -48,10 +52,12 @@ public class Flight {
         this.capacity = capacity;
     }
 
+    // method return flight details
     public  String getFlightDetails(){
         return getFlightNumber()+" "+getAirline()+" "+getCapacity()+" "+getBookedSeats();
     }
 
+    // method checks whether seats available or not
     public boolean checkAvailability(){
         if(capacity>bookedSeats){
             return  true;
@@ -61,9 +67,12 @@ public class Flight {
         }
     }
 
+    // Counter incremented on booking tickets
     public void incrementBookingCounter(){
         bookedSeats++;
     }
+
+    // counter decrement on cancellation of ticket
     public  void decrementBookingCounter(){
         bookedSeats--;
     }
